@@ -1,0 +1,23 @@
+class Result {
+
+    /*
+     * Complete the 'pangrams' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String pangrams(String s) {
+    // Write your code here
+    Set<Character>a=new HashSet();
+    for(int i=0;i<s.length();i++)
+    {
+        char b=s.charAt(i);
+        b=Character.toLowerCase(b);
+        if(Character.isAlphabetic(b))   a.add(b);
+    }
+    if(a.size()==26)    return "pangram";
+    else    return "not pangram";
+    }
+
+}
