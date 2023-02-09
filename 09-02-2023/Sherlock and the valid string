@@ -1,0 +1,33 @@
+public static String isValid(String s) {
+    // Write your code here
+    Map<Character,Integer>a=new LinkedHashMap();
+    for(int i=0;i<s.length();i++)
+    {
+        char b=s.charAt(i);
+        if(!a.containsKey(b))   a.put(b,1);
+        else    a.put(b,a.get(b)+1);
+    }
+    int ele=a.get(s.charAt(0));
+    int count=0;
+    int ele2=0;
+    a.remove(s.charAt(0));
+    for(Map.Entry<Character,Integer>entry:a.entrySet())
+    {
+        int value=entry.getValue();
+        if(ele!=value)  
+        {
+            ele2=value;
+            count++;
+            
+        }
+        else 
+        {
+            ele=value;
+        }
+        if(count>1) return "NO";
+        
+    }
+    if(count==1 && (ele==1|| ele2==1))   return "YES";
+    if(count==1 && Math.abs(ele-ele2)>1)    return "NO";
+    return "YES";
+    }
